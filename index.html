@@ -1,278 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bewakoof</title>
-    <link rel="stylesheet" href="index.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub 3D Profile Viewer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 2.5rem;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .search-box {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .search-box input {
+      width: 300px;
+      max-width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .search-box button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      background: #2dce98;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .search-box button:hover {
+      transform: translateY(-3px);
+      background: #1abc9c;
+    }
+
+    #showId {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .card-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 30px;
+      color: #fff;
+      transform: perspective(1000px) rotateX(10deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      width: 350px;
+      text-align: center;
+    }
+
+    .card-box:hover {
+      transform: perspective(1000px) rotateX(0deg);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+    }
+
+    .card-box img {
+      border-radius: 50%;
+      margin-bottom: 20px;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .card-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .card-box li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: 1rem;
+    }
+
+    .card-box li:last-child {
+      border-bottom: none;
+    }
+
+    .alert {
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .card-box {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .search-box input {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="top-links">
-            <a href="https://www.bewakoof.com/campaign/delights-coupons-discounts-offers-sale">Offers</a>
-            <a href="https://www.bewakoof.com/fanbook-testimonial-reviews">Fanbook</a>
-            <a href="https://www.bewakoof.com/campaign/apps">Download App</a>
-            <a href="https://www.bewakoof.com/find-a-store">Find a store near me</a>
-        </div>
-        <div class="top-right">
-            <a href="https://www.bewakoof.com/contact-us?pageId=%2Fcontact-us%2Forder-delivery-payment">Contact Us</a>
-            <a href="https://www.bewakoof.com/login?src=%2Forders">Track Order</a>
-        </div>
-    </div>
-
-    <nav class="navbar">
-        
-        <ul class="nav-links">
-            <li><a href="https://www.bewakoof.com/"><img class="logo" src="image copy 4.png" alt="logo" /></a></li>
-            <li><a href="https://www.bewakoof.com/men-clothing">MEN</a></li>
-            <li><a href="https://www.bewakoof.com/women-clothing">WOMEN</a></li>
-            <li><a href="https://www.bewakoof.com/mobile-covers-india">MOBILE COVERS</a></li>
-        
-        </ul>
-        <div class="search-box">
-            <input class="header_search_field_input__R0r_M" type="search" placeholder="🔍 Search by products" value/>
-            <a href="https://www.bewakoof.com/login?src=/"> Login/Signup</a> 
-
-            <span><a  href="https://www.bewakoof.com/wishlist">❤️</a></span>
-
-            <span><a  href="https://www.bewakoof.com/cart">🛒</a></span>
-        </div>
-        <div class="user-icons">
-           
-        </div>
-    </nav>
-    <hr>
-    <div class="category-bar">
-        <a href="https://www.bewakoof.com/campaign/mens-home">MEN</a>
-        <a href="https://www.bewakoof.com/campaign/womens-home">WOMEN</a>
-        <a href="https://www.bewakoof.com/campaign/plus-size-store">PLUS SIZE</a>
-        <a href="https://www.bewakoof.com/campaign/all-accessories-home">ACCESSORIES</a>
-        <a href="https://www.bewakoof.com/campaign/official-collaborations">OFFICIAL MERCH</a>
-        <a href="https://www.bewakoof.com/sneakers-for-men?sort=new&manufacturer_brand=bewakoof%C2%AE">SNEAKERS</a>
-        <a href="https://www.bewakoof.com/bewakoof-air">BEWAKOOF AIR</a>
-        <a href="https://www.bewakoof.com/bewakoof-heavy-duty">HEAVY DUTY</a>
-        <a href="https://www.bewakoof.com/custom-tshirts">CUSTOMIZATION</a>
-        <a href="https://www.bewakoof.com/campaign/winter-wear-store">WINTERWEAR</a>
-    </div>
-    <div class="scroll-container 1">
-        <div class="scroll-item"><a href="https://www.bewakoof.com/holi-collection"><img src="1.0.png" alt="Holi Collection" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/men-clothing?category=t-shirt&design=textured"><img src="1.png" alt="TEXTURED TEES" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/buy-2-for-1699"><img src="Cropped tees.png" alt="Women's Crop T-shirts" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/crop-t-shirts-for-women?q=cropped"><img src="Joggers.png" alt="Buy 2 for 1699" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/womens-day"><img src="Women's dy.png" alt="Women's Day" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/buy-2-oversized-t-shirts-at-999"><img src="Buy 2 at .png" alt="Buy 2 Oversized T-shirts at 999" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/buy-2-for-799"><img src="799.png" alt="Buy 2 for 799" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/the-pants-edit"><img src="Pants.png" alt="The Pants Edit" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/jeans"><img src="Denim Drop.png" alt="Jeans For Men & Women" /></a></div>
-        <div class="scroll-item"><a href="https://www.bewakoof.com/womens-day"><img src="2 at.png" alt="Women's Day" /></a></div>
-
-    </div>
-    <h2><center>Latest Collections</center></h2>
-
-
-    <div class="scroll-container 2">
-
-        <div class="scroll-item"><a href="https://www.bewakoof.com/trousers-pants?fit=oversized__fit_loose__comfort__fit_relaxed__fit_flared_wide__leg_super__loose__fit_loose__fit"><img src="w1.jpg" alt="Trousers & Pants"  width="340px" height="394px"/></a></div>
-
-        <div class="scroll-item"><a href="https://www.bewakoof.com/t-shirts?manufacturer_brand=bewakoof%C2%AE_bewakoof__air%C2%AE__1.0_bewakoof__heavy__duty%C2%AE__1.0_bewakoof__american__pima&design=graphic__print_printed"><img src="w2.jpg" alt="T-Shirts"  width="340px" height="400px"/></a></div>
-
-<!-- 
-        <div class="scroll-item"><a href="https://www.bewakoof.com/t-shirts?manufacturer_brand=bewakoof%C2%AE_bewakoof__air%C2%AE__1.0_bewakoof__heavy__duty%C2%AE__1.0_bewakoof__american__pima&design=graphic__print_printed"><img src="w3.jpg" alt="T-Shirts" width="340px"  /></a></div> -->
-
-        <div class="scroll-item"><a href="https://www.bewakoof.com/jeans?fit=wide__leg_straight__fit_relaxed__fit_flared_loose__fit"><img src="w4.jpg" alt="Jeans For Men & Women" width="340px" height="400px"/></a></div>
-
-        <div class="scroll-item"><a href="https://www.bewakoof.com/shorts"><img src="w5.jpg" alt="Shorts" width="340px" height="400px"/></a></div>
-
-        <div class="scroll-item"><a href="https://www.bewakoof.com/plus-size-store?manufacturer_brand=bewakoof%C2%AE_bewakoof__air%C2%AE__1.0_bewakoof__heavy__duty%C2%AE__1.0_bewakoof__american__pima&type=t-shirt"><img src="w6.jpg" alt="Plus Size Store"  width="340px" height="400px"/></a></div>
-
-        <div class="scroll-item"><a href="https://www.bewakoof.com/men-shirts?manufacturer_brand=bewakoof%C2%AE&fit=oversized__fit_super__loose__fit"><img src="w7.jpg" alt="Casual Shirts for Men"   width="340px" height="400px"/></a></div>
-
-        <div class="scroll-item"><a href="https://www.bewakoof.com/fashion-tops"><img src="w8.jpg" alt="Fashion Tops"  width="340px" height="400px"/></a></div>
-
-       
-    </div>
-        <h2><center>Shop by Category- Men</center></h2>
-
-        <div class="scroll-container 3">
-            <div class="scroll-item"><a href="https://www.bewakoof.com/men-shirts"><img src="image copy 5.png" alt="Casual Shirts for Men" /></a></div>
-        </div><br>
-        <div class="scroll-container">
-            <div class="scroll-item"><a href="https://www.bewakoof.com/men-full-sleeve-t-shirts"><img src="image copy 6.png" alt="Full Sleeve T-Shirts for Men" /></a></div>
-        </div><br>
-        <div class="scroll-container">
-            <center>  <div class="scroll-item"><a href="https://www.bewakoof.com/plus-size-store-for-men"><img src="image copy 7.png" alt="Plus Size Store for Men" /></a> <a href="https://www.bewakoof.com/men-clothing"><img src="image copy 8.png" alt="Clothes for Men" /></a></div></center>
-        </div><br>
-       
-        <h2><center>Shop by Category- Men</center></h2>
-
-        <div class="scroll-container 4">
-            <div class="scroll-item"><a href="https://www.bewakoof.com/classic-t-shirt-for-women"><img src="image copy 9.png" alt="Women's Classic Fit T-shirt" /></a></div>
-        </div><br>
-        <div class="scroll-container">
-            <div class="scroll-item"><a href="https://www.bewakoof.com/fashion-tops"><img src="image copy 10.png" alt="Fashion Tops" /></a></div>
-        </div><br>
-        <div class="scroll-container">
-             <div class="scroll-item"><a href="https://www.bewakoof.com/plus-size-store-for-women"><img src="image copy 11.png" alt="Plus Size Store for Women" /></a> <a href="https://www.bewakoof.com/women-clothing"><img src="image copy 12.png" alt="Women's Clothing" /></a></div>
-        </div><br>
-
-        <h2><center>New Arrivals</center></h2>
-   
-      
-        <div class="scroll-container ">
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-gardenia-girl-with-earring-graphic-printed-oversized-t-shirt-beige"><img src="4.png" alt="Women's Camel Brown Wide Leg Pants" /></a></div><br>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-camel-brown-wide-leg-pants-women-brown"><img src="4.1.png" alt="" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-black-wide-leg-pants-women"><img src="4.2.png" alt="Women's Black Wide Leg Pants" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-indigo-blue-washed-jeans-indigo-15"><img src="4.3.png" alt="Men's Indigo Blue Baggy Washed Cargo Jeans" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-sally-drive-graphic-printed-oversized-t-shirt-purple"><img src="4.4.png" alt="Women's Sally Drive Graphic Printed Oversized T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-jet-black-cargo-pants-jet-black"><img src="4.5.png" alt="Men's Jet Black Cargo Pants" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-black-the-real-boss-typography-boyfriend-t-shirt"><img src="4.6.png" alt="Women's Black The Real Boss Typography Boyfriend T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-morroco-blue-avengers-badge-textured-t-shirt"><img src="4.7.png" alt="Men's Morroco Blue Avengers Badge Textured Oversized T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-jet-black-double-trouble-graphic-printed-oversized-t-shirt-black"><img src="4.8.png" alt="Women's Black Double Trouble Graphic Printed Oversized T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-blue-relax-minion-graphic-printed-boyfriend-t-shirt"><img src="4.9.png" alt="Women's Blue Relax Minion Graphic Printed Boyfriend T-shirt" /></a></div>
-
-        </div>
-        <h3><center><a href="https://www.bewakoof.com/new-arrivals?sort=popular">Explore All</a></center></h3>
-
-
-        <h2><center>Buy 2 Joggers at Rs.1699</center></h2>
-
-
-        <div class="scroll-container">
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-brown-track-pants-men"><img src="5.png" alt="Men's Beige Textured Joggers" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-charcoal-grey-oversized-cargo-joggers-men"><img src="5.1.png" alt="Men's Charcoal Grey Oversized Cargo Joggers" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-chocolate-brown-oversized-cargo-joggers"><img src="5.2.png" alt="Men's Chocolate Brown Oversized Cargo Joggers" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-black-relaxe-fit-joggers-3"><img src="5.3.png" alt="Women's Black Relaxed Fit Track Pants" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-grey-oversized-joggers-87"><img src="5.4.png" alt="Women's Grey Oversized Joggers" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-black-casual-pants-35"><img src="5.5.png" alt="Men's Black Track Pants" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-black-oversize-knitted-jogger-18"><img src="5.6.png" alt="Women's Black Oversized Cargo Joggers" /></a></div>
-           
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-brown-oversized-cargo-joggers-men"><img src="5.7.png" alt="Men's Brown Oversized Cargo Joggers" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-brown-oversized-joggers-brazilian-sand"><img src="5.8.png" alt="Men's Beige Oversized Joggers" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-black-beauty-solid-oversized-fit-cargo-jogger-men-black"><img src="5.9.png" alt="Men's Black Oversized Cargo Joggers" /></a></div>
-
-
-        </div>
-
-        <h3><center><a href="https://www.bewakoof.com/buy-2-for-1699">Explore All</a></center></h3>
-       
-        <h2><center>Bestsellers</center></h2>
-
-
-        <div class="scroll-container">
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/sage-green-casual-cotton-trouser"><img src="6.0.png" alt="Men's Sage Green Trousers" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-bold-red-moon-rider-printed-t-shirt"><img src="6.1.png" alt="Men's Red Moon Rider Graphic Printed Oversized T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-grey-the-dragon-warrior-graphic-printed-oversized-t-shirt"><img src="6.2.png" alt="Men's Grey The Dragon Warrior Graphic Printed Oversized T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-blue-dementors-graphic-printed-t-shirt"><img src="6.3.png" alt="Men's Blue Dementors Graphic Printed T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-green-sundays-we-do-nothing-graphic-printed-boyfriend-t-shirt"><img src="6.4.png" alt="Women's Green Sundays We Do Nothing Graphic Printed Boyfriend T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/men-white-wander-geometry-printed-t-shirt"><img src="6.5.png" alt="Men's White Wander Geometry Graphic Printed Oversized T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-olive-green-bottom-elasticated-pyjama"><img src="6.6.png" alt="Men's Olive Pyjamas" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/womens-blue-lazy-garfield-graphic-printed-oversized-t-shirt" ><img src="6.7.png" alt="Women's Blue Lazy Garfield Graphic Printed Oversized T-shirt"/></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/men-white-vengeance-printed-t-shirt"><img src="6.8.png" alt="Men's White Vengeance Typography Oversized T-shirt" /></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/p/mens-black-panther-mech-graphic-printed-oversized-t-shirt"><img src="6.9.png" alt="Men's Black Panther Mech Graphic Printed Oversized T-shirt" /></a></div>
-
-        </div>
-
-      
-
-        <h2><center>Shop by Fandom</center></h2>
-
-
-        <div class="scroll-container">
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/captain-america-merchandise?category=t-shirt"><img src="a1.png" alt="Captain America Merchandise" width="400px" height="470px" margin="50px" padding="20px"/></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/demon-slayer-merchandise"><img src="a.2.png" alt="Demon Slayer Merchandise" width="400px" height="500px" margin="50px" padding="20px"/></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/squid-games-merchandise"><img src="a.3.png" alt="Squid Games Merchandise" width="400px"  height="500px" margin="50px" padding="20px"/></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/venom?category=t-shirt_sweatshirt"><img src="a.4.png" alt="Venom" width="400px"  height="500px" margin="50px" padding="20px"/></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/naruto-merchandise"><img src="a.5.png" alt="Naruto Merchandise" width="400px" height="500px" margin="50px" padding="20px"/></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/harry-potter-merchandise"><img src="a.6.png" alt="Harry Potter Merchandise" width="400px"  height="500px" margin="200px" padding="20px"/></a></div>
-
-            <div class="scroll-item"><a href="https://www.bewakoof.com/official-collaborations-collection"><img src="a.7.png" alt="Official Merch" width="400px"  height="500px" margin="5px" padding="20px"/></a></div>           
-
-        </div>
-
-        <h3><center><a href="https://www.bewakoof.com/plus-size-store?sort=popular">Explore All</a></center></h3>
-       
-        <footer> 
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li><a href="https://www.bewakoof.com/contact-us?pageId=%2Fcontact-us%2Forder-delivery-payment">Contact Us</a></li>
-                        <li><a href="https://www.bewakoof.com/orders">Track Order</a></li>
-                        <li><a href="https://www.bewakoof.com/orders?status=returned">Return Order</a></li>
-                        <li><a href="https://www.bewakoof.com/contact-us?pageId=%2Fcontact-us%2Forder-delivery-payment">Cancel Order</a></li>
-                    </ul>
-                </div>
-    
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="https://www.bewakoof.com/about-us/our-story">About Us</a></li>
-                        <li><a href="https://www.bewakoof.com/terms-and-conditions">Terms & Conditions</a></li>
-                        <li><a href="https://www.bewakoof.com/privacy-policy-and-disclaimer">Privacy Policy</a></li>
-                        <li><a href="https://www.bewakoof.com/careers">We are Hiring</a></li>
-                    </ul>
-                </div>
-    
-                <div class="footer-section">
-                    <h3>Connect with Us</h3>
-                    <ul class="social-icons">
-                        <li><a href="https://www.facebook.com/bewakoofcom">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/bewakoofofficial/">Instagram</a></li>
-                        <li><a href="https://x.com/bewakoof">Twitter</a></li>
-                        <li><a href="https://in.pinterest.com/bewakoof/">Pinterest</a></li>
-                    </ul>
-                </div>
-    
-                <div class="footer-section">
-                    <h3>Keep Up to Date</h3>
-                    <form>
-                        <input type="email" name="email" placeholder="Enter Email Id:" class="sc-ffc3b903-3 jFcWJY" value>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-    
-            <div class="footer-bottom">
-                <p>© 2025 YourWebsite. All Rights Reserved.</p>
-            </div>
-        </footer>
-</body>    
-       
-      
+  <h1>GitHub Profile Viewer</h1>
+
+  <div class="search-box">
+    <input type="text" id="inputId" placeholder="Enter GitHub Username">
+    <button onclick="userData()">Search</button>
+  </div>
+
+  <div id="showId"></div>
+
+  <script>
+    async function userData() {
+      const username = document.getElementById("inputId").value.trim();
+      const displayEle = document.getElementById("showId");
+      displayEle.innerHTML = "";
+
+      if (!username) {
+        displayEle.innerHTML = `<div class="alert alert-warning w-50 mx-auto text-center">Please enter a username.</div>`;
+        return;
+      }
+
+      try {
+        const url = `https://api.github.com/users/${username}`;
+        const res = await fetch(url, {
+          headers: {
+            'Accept': 'application/vnd.github.v3+json',
+            'User-Agent': 'gitProfileViewer'
+          }
+        });
+
+        if (!res.ok) {
+          throw new Error("GitHub user not found");
+        }
+
+        const data = await res.json();
+
+        const card = document.createElement("div");
+        card.className = "card-box";
+
+        card.innerHTML = `
+          <img src="${data.avatar_url}" alt="Avatar" />
+          <ul>
+            <li><strong>Name:</strong> ${data.name || "Not available"}</li>
+            <li><strong>Username:</strong> ${data.login}</li>
+            <li><strong>Bio:</strong> ${data.bio || "Not available"}</li>
+            <li><strong>Location:</strong> ${data.location || "Not available"}</li>
+            <li><strong>Public Repos:</strong> ${data.public_repos}</li>
+            <li><strong>Followers:</strong> ${data.followers}</li>
+            <li><strong>Following:</strong> ${data.following}</li>
+            <li><strong>Created:</strong> ${new Date(data.created_at).toLocaleDateString()}</li>
+            <li><strong>Last Updated:</strong> ${new Date(data.updated_at).toLocaleDateString()}</li>
+            <li><strong>Email:</strong> ${data.email || "Not public"}</li>
+          </ul>
+        `;
+
+        displayEle.appendChild(card);
+
+      } catch (error) {
+        displayEle.innerHTML = `<div class="alert alert-danger w-50 mx-auto text-center">${error.message}</div>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
